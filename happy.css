@@ -1,0 +1,284 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #000;
+            color: #fff;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            max-width: 1200px;
+            max-height: 800px;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(255, 50, 150, 0.5);
+        }
+
+        /* الخلفية الأسطورية المتحركة */
+        .background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #0c0032, #190061, #240090, #3500d3);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            z-index: 1;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* النجوم المتلألئة */
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+
+        /* الزهور العائمة */
+        .flowers-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+            overflow: hidden;
+        }
+
+        .flower {
+            position: absolute;
+            opacity: 0.8;
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); }
+            100% { transform: translateY(-100px) rotate(360deg); }
+        }
+
+        /* الوردة المركزية */
+        .center-flower {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            width: 300px;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main-rose {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            animation: rotateRose 40s infinite linear;
+        }
+
+        @keyframes rotateRose {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .petal {
+            position: absolute;
+            width: 60px;
+            height: 100px;
+            background: linear-gradient(to bottom, #ff66b2, #ff3385);
+            border-radius: 50%;
+            transform-origin: bottom center;
+            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .rose-center {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(#ffcc00, #ff9900);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+            box-shadow: 0 0 20px #ff9900;
+        }
+
+        /* التاج الأسطوري */
+        .crown {
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 180px;
+            height: 100px;
+            z-index: 11;
+            animation: crownGlow 3s infinite alternate;
+        }
+
+        @keyframes crownGlow {
+            0% { filter: drop-shadow(0 0 5px gold); }
+            100% { filter: drop-shadow(0 0 25px gold); }
+        }
+
+        .crown-base {
+            position: absolute;
+            width: 100%;
+            height: 30px;
+            background: linear-gradient(to right, #ffd700, #ffed4e, #ffd700);
+            border-radius: 10px 10px 0 0;
+            top: 0;
+        }
+
+        .crown-point {
+            position: absolute;
+            width: 30px;
+            height: 50px;
+            background: linear-gradient(to top, #ffd700, #ffed4e);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            bottom: 30px;
+        }
+
+        .crown-jewel {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(#ff3366, #cc0044);
+            border-radius: 50%;
+            top: 10px;
+            box-shadow: 0 0 10px #ff3366;
+        }
+
+        /* النص الرئيسي */
+        .text-container {
+            position: absolute;
+            width: 100%;
+            top: 15%;
+            text-align: center;
+            z-index: 4;
+        }
+
+        .main-text {
+            font-size: 3.5rem;
+            font-weight: bold;
+            background: linear-gradient(to right, #ff66b2, #ff3385, #ff0066);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 0, 102, 0.3);
+            animation: textGlow 2s infinite alternate;
+        }
+
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 10px rgba(255, 0, 102, 0.3); }
+            100% { text-shadow: 0 0 20px rgba(255, 0, 102, 0.7), 0 0 30px rgba(255, 0, 102, 0.5); }
+        }
+
+        .signature {
+            position: absolute;
+            bottom: 10%;
+            right: 5%;
+            font-size: 1.8rem;
+            color: gold;
+            font-weight: bold;
+            z-index: 4;
+            animation: signatureMove 5s infinite alternate;
+        }
+
+        @keyframes signatureMove {
+            0% { transform: translateX(0) rotate(0deg); }
+            100% { transform: translateX(-10px) rotate(1deg); }
+        }
+
+        .signature::after {
+            content: "👑";
+            margin-right: 10px;
+            font-size: 2rem;
+            animation: crownBounce 2s infinite;
+        }
+
+        @keyframes crownBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* تأثيرات إضافية */
+        .sparkles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            border-radius: 50%;
+            animation: sparkleMove 3s linear infinite;
+        }
+
+        @keyframes sparkleMove {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+
+        /* معلومات التحكم */
+        .controls {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+        }
+
+        .controls button {
+            background: #ff3385;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .controls button:hover {
+            background: #ff0066;
+        }
